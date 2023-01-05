@@ -10,9 +10,6 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v11',
   scrollZoom: false
-  //   center: [-118.113491, 34.111745],
-  //   zoom: 10,
-  //   interactive: false
 });
 
 const bounds = new mapboxgl.LngLatBounds();
