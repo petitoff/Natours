@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-cond-assign */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable node/no-unsupported-features/es-syntax */
 /* eslint-disable no-undef */
