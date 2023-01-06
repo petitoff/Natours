@@ -1,6 +1,11 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable node/no-unsupported-features/es-syntax */
 /* eslint-disable no-undef */
 
-const login = async (email, password) => {
+import axios from 'axios';
+import { showAlert } from './alerts';
+
+export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
@@ -12,7 +17,7 @@ const login = async (email, password) => {
     });
 
     if (res.data.status === 'success') {
-      alert('Logged in successfully!');
+      showAlert('success', 'Logged in successfully!');
       window.setTimeout(() => {
         // eslint-disable-next-line no-restricted-globals
         location.assign('/');
@@ -20,14 +25,6 @@ const login = async (email, password) => {
     }
     console.log(res);
   } catch (err) {
-    alert(err.response.data.message);
+    showAlert('error', err.response.data.message);
   }
 };
-
-document.querySelector('.form').addEventListener('submit', e => {
-  e.preventDefault();
-  const email = document.querySelector('#email').value;
-  const password = document.querySelector('#password').value;
-
-  login(email, password);
-});
