@@ -1,9 +1,4 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-cond-assign */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable node/no-unsupported-features/es-syntax */
-/* eslint-disable no-undef */
-
+/* eslint-disable */
 import axios from 'axios';
 import { showAlert } from './alerts';
 
@@ -21,11 +16,9 @@ export const login = async (email, password) => {
     if (res.data.status === 'success') {
       showAlert('success', 'Logged in successfully!');
       window.setTimeout(() => {
-        // eslint-disable-next-line no-restricted-globals
         location.assign('/');
       }, 1500);
     }
-    console.log(res);
   } catch (err) {
     showAlert('error', err.response.data.message);
   }
@@ -37,9 +30,9 @@ export const logout = async () => {
       method: 'GET',
       url: 'http://127.0.0.1:3000/api/v1/users/logout'
     });
-
     if ((res.data.status = 'success')) location.reload(true);
   } catch (err) {
+    console.log(err.response);
     showAlert('error', 'Error logging out! Try again.');
   }
 };
